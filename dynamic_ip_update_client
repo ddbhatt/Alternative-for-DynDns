@@ -1,0 +1,8 @@
+#!/bin/bash
+update_url="http://www.webserver.com/redirect/remote/?Password&SET-MY-IP"
+wait_minutes=10
+while true
+do
+	curl --silent "${update_url}"
+	sleep $((${wait_minutes}*60))
+done
