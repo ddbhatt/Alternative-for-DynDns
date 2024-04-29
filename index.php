@@ -1,5 +1,11 @@
 <?php
 
+
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+ob_start();
+
 	// Notes:
 	// ======
 	// QueryString is CaseSensitive
@@ -14,6 +20,7 @@
 	//
 	// Templating: Create Directory and put index with following
 	// <?php require_once('../index.php'); ? >
+	// <?php require_once($_SERVER['DOCUMENT_ROOT'].'/go/ddns.php'); ?>
 
 	$password_for_setting_url = "";
 	$db_file_path=$_SERVER['DOCUMENT_ROOT'].'/go/redirection.sqlite3';
@@ -157,5 +164,6 @@
 	header("Cache-Control: no-cache");
 	header("Pragma: no-cache");
 	echo $http_output;
+	ob_flush();
 
 ?>
